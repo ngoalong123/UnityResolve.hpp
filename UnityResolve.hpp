@@ -1399,10 +1399,11 @@ public:
 
 			auto ToArray() -> Array<Type>* { return pList; }
 
-			static auto New(const Class* kalss, const std::uintptr_t size) -> List* {
+			static auto New(const Class* kalss, const std::uintptr_t size) -> List<Type>* {
 				auto pList = new List<Type>();
 				pList->pList = Array<Type>::New(kalss, size);
 				pList->size = size;
+				return pList;
 			}
 
 			auto operator[](const unsigned int m_uIndex) -> Type& { return pList->At(m_uIndex); }
